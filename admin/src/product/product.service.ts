@@ -8,6 +8,11 @@ interface data {
   image: string;
 }
 
+interface updateData {
+  title?: string;
+  image?: string;
+}
+
 @Injectable()
 export class ProductService {
   constructor(
@@ -22,5 +27,11 @@ export class ProductService {
   }
   async get(id: any): Promise<Product> {
     return this.productRepository.findOneBy({ id });
+  }
+  async update(id: number, data: updateData): Promise<any> {
+    return this.productRepository.update(id, data);
+  }
+  async delete(id: number): Promise<any> {
+    return this.productRepository.delete(id);
   }
 }

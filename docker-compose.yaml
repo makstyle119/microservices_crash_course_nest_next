@@ -3,6 +3,7 @@ version: '3.6'
 services:
   db:
     image: mysql
+    container_name: db_c
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
@@ -10,12 +11,25 @@ services:
       MYSQL_DATABASE: rest_admin
       MYSQL_USER: user
       MYSQL_PASSWORD: user
-
-    # volumes:
-    #   - ./db/mysql:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db/mysql:/docker-entrypoint-initdb.d
 
   adminer:
     image: adminer
+    container_name: adminer_c
     restart: always
     ports:
       - 8080:8080
+
+  # admin:
+  #   build: ./admin
+  #   container_name: admin_c
+  #   ports:
+  #     - 8000:8000
+  #   stdin_open: true
+  #   volumes:
+  #     - ./admin:/app/node_modules
+  #     - ./admin:/app
+  #   tty: true

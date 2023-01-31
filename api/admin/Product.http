@@ -9,3 +9,13 @@ content-type: application/json
     "title": "test",
     "image": "test"
 }
+
+PUT http://localhost:8000/api/product/1
+content-type: application/json
+
+{
+    "title": "test1",
+    "title": "test1"
+}
+
+DELETE http://localhost:8000/api/product/1
