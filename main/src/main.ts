@@ -13,8 +13,7 @@ async function bootstrap() {
       },
     },
   });
-
-  app.listen((): void => {
+  app.listen().then(() => {
     console.log('Micro Service is listen');
   });
   // try {
