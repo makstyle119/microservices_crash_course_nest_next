@@ -2,19 +2,17 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  // try {
-  //   const app = await NestFactory.create(AppModule, {
-  //     abortOnError: false,
-  //   });
-  //   await app.listen(8000);
-  // } catch (err) {
-  //   console.log(err, 'error'); // <-- for example, ECONNREFUSED error
-  // }
-  const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix('api');
-  app.enableCors({
-    origin: 'http://localhost:2400',
-  });
-  await app.listen(8000);
+  try {
+    const app = await NestFactory.create(AppModule, {
+      abortOnError: false,
+    });
+    app.setGlobalPrefix('api');
+    app.enableCors({
+      origin: 'http://localhost:4200',
+    });
+    await app.listen(8000);
+  } catch (err) {
+    console.log(err, 'error'); // <-- for example, ECONNREFUSED error
+  }
 }
 bootstrap();
