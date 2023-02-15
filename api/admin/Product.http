@@ -1,21 +1,21 @@
 GET http://localhost:8000/api/product HTTP/1.1
 
-GET http://localhost:8000/api/product/1 HTTP/1.1
+# GET http://localhost:8001/api/product/1 HTTP/1.1
 
-POST http://localhost:8000/api/product HTTP/1.1
-content-type: application/json
+# POST http://localhost:8000/api/product HTTP/1.1
+# content-type: application/json
 
-{
-    "title": "test",
-    "image": "test"
-}
+# {
+    # "title": "test",
+    # "image": "test"
+# }
 
-PUT http://localhost:8000/api/product/1
-content-type: application/json
+# PUT http://localhost:8000/api/product/1
+# content-type: application/json
 
-{
-    "title": "test1",
-    "title": "test1"
-}
+# {
+    # "title": "test1",
+    # "title": "test1"
+# }
 
-DELETE http://localhost:8000/api/product/1
+# DELETE http://localhost:8000/api/product/1
