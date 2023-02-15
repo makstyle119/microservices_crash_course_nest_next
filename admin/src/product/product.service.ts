@@ -6,11 +6,13 @@ import { Product } from './product.entity';
 interface data {
   title: string;
   image: string;
+  likes?: number;
 }
 
 interface updateData {
   title?: string;
   image?: string;
+  likes?: number;
 }
 
 @Injectable()

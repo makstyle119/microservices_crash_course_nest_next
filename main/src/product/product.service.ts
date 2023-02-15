@@ -3,6 +3,13 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Product, ProductDocument } from './product.model';
 
+interface data {
+  id: number;
+  title: string;
+  image: string;
+  likes: string;
+}
+
 @Injectable()
 export class ProductService {
   constructor(
@@ -10,7 +17,11 @@ export class ProductService {
     private readonly productModule: Model<ProductDocument>,
   ) {}
 
-  async all() {
+  async all(): Promise<Product[]> {
     return this.productModule.find().exec();
+  }
+
+  async create(data: data): Promise<Product> {
+    return new this.productModule(data).save();
   }
 }
