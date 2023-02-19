@@ -24,4 +24,16 @@ export class ProductService {
   async create(data: data): Promise<Product> {
     return new this.productModule(data).save();
   }
+
+  async findOne(id: number): Promise<Product> {
+    return this.productModule.findOne({ id });
+  }
+
+  async update(id: number, data: data): Promise<Product> {
+    return this.productModule.findOneAndUpdate({ id }, data);
+  }
+
+  async delete(id: number): Promise<void> {
+    this.productModule.deleteOne({ id });
+  }
 }
