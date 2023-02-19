@@ -1,3 +1,4 @@
+import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
@@ -10,6 +11,7 @@ import { ProductModule } from './product/product.module';
       autoCreate: true,
     }),
     ProductModule,
+    HttpModule,
   ],
   controllers: [AppController],
   providers: [AppService],

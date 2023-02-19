@@ -19,3 +19,5 @@ content-type: application/json
 }
 
 DELETE http://localhost:8001/api/product/1
+
+POST http://localhost:8001/api/product/2/like HTTP/1.1

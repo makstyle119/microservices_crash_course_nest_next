@@ -4,10 +4,10 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Product, ProductDocument } from './product.model';
 
 interface data {
-  id: number;
-  title: string;
-  image: string;
-  likes: string;
+  id?: number;
+  title?: string;
+  image?: string;
+  likes?: number;
 }
 
 @Injectable()

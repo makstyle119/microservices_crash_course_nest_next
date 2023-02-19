@@ -11,6 +11,13 @@ import {
 import { ProductService } from './product.service';
 import { ClientProxy } from '@nestjs/microservices';
 
+interface data {
+  id: number;
+  title: string;
+  image: string;
+  likes: number;
+}
+
 @Controller('product')
 export class ProductController {
   constructor(
@@ -56,5 +63,13 @@ export class ProductController {
   async delete(@Param('id') id: number) {
     this.productService.delete(id);
     this.client.emit('product_deleted', id);
+  }
+
+  @Post(':id/like')
+  async like(@Param('id') id: number) {
+    const product: data = await this.productService.get(id);
+    return this.productService.update(id, {
+      likes: product.likes + 1,
+    });
   }
 }
